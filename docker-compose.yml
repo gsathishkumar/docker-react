@@ -1,0 +1,19 @@
+version: '3'
+services:
+  node-web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes: 
+      - /app/node_modules
+      - C:\Users\Sathishkumar\dockerpractice\workflow\frontend:/app
+  node-test:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes: 
+      - /app/node_modules
+      - C:\Users\Sathishkumar\dockerpractice\workflow\frontend:/app
+    command: ["npm","run","test"]
